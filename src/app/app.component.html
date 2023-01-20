@@ -1,5 +1,10 @@
 <h1>{{title}}</h1>
-<button (click)="alterar()">Alterar</button>
+
 <ul>
-    <li *ngFor="let todo of todos">{{todo}}</li> <!-- ngFor faz um loop -->
+    <li *ngFor="let todo of todos"> <!-- ngFor faz um loop -->
+        {{todo.id}} {{todo.title}} 
+        <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button>
+        <button *ngIf="todo.done" (click)="markAsUnDone(todo)">REFAZER</button> | 
+        <button (click)="remove(todo)">REMOVER</button>
+    </li> 
 </ul>
